@@ -1,49 +1,52 @@
-var todoList = document.querySelector(".todo-list");
-var todoTask = document.querySelector("li.todo-task");
-var add = document.querySelector(".add-task");
+const list = document.getElementById('todo-list')
+const itemCountSpan = document.getElementById('item-count')
+const uncheckedCountSpan = document.getElementById('unchecked-count')
+const todoInput = document.getElementById('todo-input')
 
-todoList.addEventListener("click", function(event) {
+const todoTemplate = (todoTitle) => `
+  <div class="todo-container text-gray-700 text-center mt-2">
+    <div class="flex justify-between bg-yellow-100 shadow mb-2">
+      <span class="w-full text-left leading-loose p-2 pl-10 cursor-pointer" onClick="checkTodo(this)">${todoTitle}</span>
+      <div class="close-btn p-2 pr-8 text-xl cursor-pointer"></div>
+    </div>
+  </div>
+`
+const newTodo = () => {
+  if (! todoInput.checkValidity()) {
+    alert("Your TODO title is missing")
     
+    return false
+  }
 
-    if (event.target.matches('.remove')) {
-    	event.target.closest('li').remove()
-    } else if (event.target.matches('.toggle-color')) {
-    	event.preventDefault();
-        var color = event.target.dataset.color;
-        var nearestTask = event.target.closest('li');
-        var is_active = nearestTask.classList.contains(color); 
-        
-        nearestTask.classList.remove('blue', 'green', 'red');
-        nearestTask.style.color = "#000000";
+  list.insertAdjacentHTML('beforeend', todoTemplate(todoInput.value))
+  list.lastElementChild.querySelector('.close-btn').addEventListener('click', deleteTodo)
 
-        if (!is_active) {
-        	nearestTask.style.color = "#ffffff";
-            nearestTask.classList.add(color);
-        }
-    } else if (event.target.matches('.toggle-complete')){
-        var nearestTask = event.target.closest('li');
-        var is_complete = nearestTask.classList.contains('completed'); 
-    	
-    	nearestTask.classList.remove('completed');
-        
-        if (!is_complete) {
-            nearestTask.classList.add('completed');
-        }
-    }
-});
+  itemCountSpan.innerHTML++
+  uncheckedCountSpan.innerHTML++
 
-add.addEventListener("click", function(e) {
-	event.preventDefault();
-	var addListItem = document.createElement('li');
-	var taskTitle = document.getElementById('task-title');
-	todoList.appendChild(addListItem);
-	addListItem.classList.add('todo-task');
-	addListItem.innerHTML = '<span class="task-title"></span>' +
-							'<a href="#" class="button toggle-color" data-color="blue">B</a>' +
-							'<a href="#" class="button toggle-color" data-color="green">G</a>' +
-							'<a href="#" class="button toggle-color" data-color="red">R</a>' +
-							'<a href="#" class="button toggle-complete" data-status="mark-completed"><i class="fas fa-check"></i></a>' +
-							'<a class="button remove"><i class="fas fa-trash"></i></a>';
-	addListItem.querySelector('.task-title').appendChild(document.createTextNode(taskTitle.value));
-	taskTitle.value = '';
-})
+  todoInput.value = ""
+}
+
+const checkTodo = (el) => {
+  el.classList.toggle('checked')
+
+  if (el.classList.contains('checked')) {
+    uncheckedCountSpan.innerHTML--
+  } else {
+    uncheckedCountSpan.innerHTML++
+  }
+}
+
+const deleteTodo = (el) => {  
+  const todoContainer = el.target.parentElement
+
+  todoContainer.parentNode.removeChild(el.target.parentElement)
+
+  if (! todoContainer.querySelector('.checked')) {
+    uncheckedCountSpan.innerHTML--
+  }
+
+  itemCountSpan.innerHTML--
+ }
+(a>b) ? a : b;
+ 
