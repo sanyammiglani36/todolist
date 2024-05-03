@@ -1,59 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="main.css">
-    <title>Todo List</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+<title>To-Do List</title>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link href="main.css" rel="stylesheet">
 </head>
-<body >
-    <div class="todo-list bg-black bg-cover bg-center bg-no-repeat bg-fixed p-8 font-poppins h-screen w-screen mb-3 font-semibold" style="background-image: url('https://lh3.googleusercontent.com/C32GM2pjZ6uubiP4Nu_OZgRBzP-Z4NEp55HrcZLT9HHGbkDvzEBiQcpj7Halc8ZvXWOEGWYTz__oslduMzYufjIZuVIu8rbXVyU0iOdkOlwYrcrEt6Y=w1200-rj')">
-        <div class="todo-list-wrapper bg-gray-300 bg-opacity-80 backdrop-blur rounded-3xl mx-auto max-w-3xl p-8 sm:p-16 relative">
-            <h2 class="text-4xl leading-tight mb-2 mt-0 text-center">To do list</h2>
-            <form action="#" class="flex mb-2">
-                <input type="text" placeholder="Add new task" id="task-title" required class=" task-input mb-3 border-none outline-none rounded-lg bg-transparent text-gray-400 leading-6 p-2 w-full focus:border-gray-400 focus:text-gray-700 focus:bg-white">
-                <input type="submit" class="button add-task text-sm bg-green-700 rounded-lg border-none px-4 py-2 text-white cursor-pointer inline-block transition duration-300 ease-in-out hover:bg-green-600k transform hover:translate-y-[-2px] active:transform active:translate-y-4 box-border  mb-4 w-1/5 font-semibold hover:bg-blue-700" value="Add!">
-
-            </form>
-            <ul class="todo-list">
-                <p class="lead text-gray-800 text-xl font-bold">Get your stuff done ! </p>
-                <li class="todo-task bg-f2f5ed rounded-2.2em mx-3 my-0 px-4 py-8 relative">
-                    <span class="task-title block bg-f2f5ed rounded-full px-4 py-2  font-semibold text-2xl text-gray-80">Read a Book</span>
-                    <a href="#" class="button toogle-color bg-indigo-100 text-#0f172a" data-color="blue">B</a>
-                    <a href="#" class="button toogle-color" data-color="green">G</a>
-                    <a href="#" class="button toogle-color" data-color="yellow">Y</a>
-                    <a href="#" class="buttton toggle-complete text-xs absolute w-10 h-10 p-3 bg-green-200 text-black top-1 right-3 bottom-3 hover:bg-green-500" data-status="mark-completed"><i class="fas fa-check"></i></a>
-                    <a class="button-remove text-xs absolute w-10 h-10 p-3  bg-red-50 right-3 bottom-1 text-red-700 hover:bg-red-950"> <i class="fas fa-trash"></i></a>
-                </li>
-
-                <li class="todo-task bg-f2f5ed rounded-2.2em my-4 px-4 py-8  relative">
-                    <span class="task-title inline-block bg-f2f5ed rounded-full px-4 py-2 text-sm font-semibold text-gray-800">Buy Grocery</span>
-                    <a href="#" class="button toogle-color" data-color="blue">B</a>
-                    <a href="#" class="button toogle-color" data-color="green">G</a>
-                    <a href="#" class="button toogle-color" data-color="yellow">Y</a>
-                    <a href="#" class="buttton toggle-complete" data-status="mark-completed"><i class="fas fa-check"></i></a>
-                    <a class="button-remove inline-block text-xs leading-none py-3 px-2 w-10 h-10"> <i class="fas fa-trash"></i></a>
-                </li>
-
-                <li class="todo-task bg-f2f5ed rounded-2.2em my-4 px-4 py-8 pl-10 relative">
-                    <span class="task-title inline-block bg-f2f5ed rounded-full px-4 py-2 text-sm font-semibold text-gray-800">Watch Movies</span>
-                    <a href="#" class="button toogle-color" data-color="blue">B</a>
-                    <a href="#" class="button toogle-color" data-color="green">G</a>
-                    <a href="#" class="button toogle-color" data-color="yellow">Y</a>
-                    <a href="#" class="buttton toggle-complete inline-block text-xs leading-none py-3 px-2 w-10 h-10" data-status="mark-completed"><i class="fas fa-check"></i></a>
-                    <a class="button-remove inline-block text-xs leading-none py-3 px-2 w-10 h-10"> <i class="fas fa-trash"></i></a>
-                </li>
-            </ul>
-        </div>
+<body class="bg-[url('https://lh3.googleusercontent.com/C32GM2pjZ6uubiP4Nu_OZgRBzP-Z4NEp55HrcZLT9HHGbkDvzEBiQcpj7Halc8ZvXWOEGWYTz__oslduMzYufjIZuVIu8rbXVyU0iOdkOlwYrcrEt6Y=w1200-rj')] bg-center bg-no-repeat bg-cover bg-fixed mt-[7em]">
+  <div class="bg-[#fcfdf6cc] rounded-[3em] mx-auto max-w-[600px] py-[2em] px-[1em] ">
+    <div class="mb-8">
+    <h1 class="text-[48px] leading-[1.4em] mb-[0.4em] mt-0 text-center">To-Do List</h1>
+    <div class="flex justify-between items-center mb-6">
+      <span class="text-[#1a1c18] text-[18px] font-[700]">Item count: <span id="item-count">0</span></span>
+      <span class="text-[#1a1c18] text-[18px] font-[700]">Unchecked count: <span id="unchecked-count">0</span></span>
     </div>
+    <div class="flex items-center mb-4">
+      <input id="todo-input" class="bg-transparent border-none box-border text-xl text-=black leading-[2] px-[0.5rem] py-[1rem] outline-none focus:border-[#aaa] w-[75%]" type="text" placeholder="Add New Task" maxlength="50" required>
+      <div onClick="newTodo();" class=" rounded-xl  text-white p-2 pl-5 pr-5 cursor-pointer">
+        <span class="bg-[#326b24] rounded-r-lg text-white p-2 pl-5 pr-5 cursor-pointer  hover:bg-[#3dacfe] translate-y-(-2px)">Add +</span>
+      </div>
+    </div>
+    <div class="rounded-inherit list-none px-0 py-0">
+      <div class="todo-list">
+        <h2 class="text-[#1a1c18] text-[18px] font-[700]">Get your stuff done :)</h2>
+        
+    <div id="todo-list"></div>
+  </div>
 </div>
-<script src="script.js"></script>
+</div>
+<div class="mt-8">
+</div>
+</div>
+  <script src="./script.js"></script>
 </body>
 </html>
- 
+
+
+
